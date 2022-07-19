@@ -25,7 +25,6 @@ export default class TaskForm extends Component {
 
         const newTask = {
             title: this.state.title,
-            isDone: false,
         };
 
         this.setState({

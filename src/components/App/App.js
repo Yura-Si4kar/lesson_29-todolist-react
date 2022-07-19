@@ -50,19 +50,20 @@ export default class App extends Component {
     });
   }
 
-  addTask = (newTask) => {
+  
+  switchColor = (id) => {
+    const newList = this.state.list.map((task) => (
+    task.id !== id ? task : { ...task, isDone: !task.isDone }
+    ));
+    
     this.setState({
-      list: [...this.state.list, { ...newTask, id: Date.now() }],
+      list: newList,
     })
   }
 
-  switchColor = (id) => {
-    const newList = this.state.list.map((task) => (
-      task.id !== id ? task : { ...task, isDone: !task.isDone }
-    ));
-
+  addTask = (newTask) => {
     this.setState({
-      list: newList,
+      list: [...this.state.list, { ...newTask, id: Date.now(), isDone: false }],
     })
   }
 }
